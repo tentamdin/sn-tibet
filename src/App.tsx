@@ -7,7 +7,7 @@ import { AboutUs } from "./pages/AboutUs";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-background flex flex-col w-full max-w-[1280px] mx-auto">
       <HeaderSection />
       <main className="flex-grow">
         <Routes>

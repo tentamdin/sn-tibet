@@ -2,18 +2,12 @@ import { AboutUsSection } from "@/components/home/AboutUsSection";
 import { CallToActionSection } from "@/components/home/CallToActionSection";
 import { CategorySection } from "@/components/home/CategorySection";
 import { HeroSection } from "@/components/home/HeroSection";
-import { FooterSection } from "@/components/layout/Footer";
-import { HeaderSection } from "@/components/layout/Header";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
     <div className="bg-white flex flex-row justify-center w-full">
       <div className="bg-white overflow-hidden w-full relative">
-        {/* Header Section */}
-        <section className="w-full">
-          <HeaderSection />
-        </section>
         {/* Hero Section */}
         <section className="w-full relative">
           <HeroSection />
@@ -46,11 +40,6 @@ export default function Home() {
         {/* About Us Section */}
         <section className="w-full">
           <AboutUsSection />
-        </section>
-
-        {/* Footer Section */}
-        <section className="w-full">
-          <FooterSection />
         </section>
       </div>
     </div>

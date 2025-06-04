@@ -11,14 +11,6 @@ export default function Home() {
         {/* Hero Section */}
         <section className="w-full relative">
           <HeroSection />
-
-          {/* Hero navigation dots */}
-          <div className="flex justify-center gap-3 mt-4 absolute bottom-0 left-1/2 -translate-x-1/2">
-            <div className="bg-[#000000b2] w-2 h-2.5 rounded-[4px/5px]" />
-            <div className="bg-white w-2 h-2.5 rounded-[4px/5px]" />
-            <div className="bg-white w-2 h-2.5 rounded-[4px/5px]" />
-            <div className="bg-white w-2 h-2.5 rounded-[4px/5px]" />
-          </div>
         </section>
 
         {/* Call To Action Section */}

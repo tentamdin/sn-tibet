@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 export const AboutUsSection = (): JSX.Element => {
   return (
     <section className="w-full">
-      <div className="container mx-auto ">
+      <div className="container mx-auto">
         <Card className="border-0 shadow-none">
           <CardContent className="relative h-[300px]">
             {/* Decorative corner images */}

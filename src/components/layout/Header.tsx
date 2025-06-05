@@ -5,8 +5,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export const HeaderSection = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   // Navigation items data
   const navItems = [
     { name: "Home", href: "/" },
@@ -16,8 +20,8 @@ export const HeaderSection = () => {
   ];
 
   return (
-    <header className="w-full h-[70px] bg-white flex items-center">
-      <div className="w-full max-w-[1280px] mx-auto px-12 flex justify-between items-center">
+    <header className="w-full h-[70px] bg-white flex items-center relative">
+      <div className="w-full max-w-[1280px] mx-auto px-4 md:px-12 flex justify-between items-center">
         <Link
           to="/"
           className="[font-family:'Lora',Helvetica] font-semibold text-[#ffbb00] text-4xl"
@@ -25,7 +29,8 @@ export const HeaderSection = () => {
           Sntibet
         </Link>
 
-        <NavigationMenu>
+        {/* Desktop Navigation */}
+        <NavigationMenu className="hidden md:block">
           <NavigationMenuList className="flex gap-8">
             {navItems.map((item) => (
               <NavigationMenuItem key={item.name}>
@@ -39,6 +44,32 @@ export const HeaderSection = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-black"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="absolute top-[70px] left-0 w-full bg-white shadow-lg md:hidden z-10">
+            <nav className="flex flex-col p-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="[font-family:'Lora',Helvetica] font-normal text-black text-lg py-3 px-4 hover:bg-gray-100"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

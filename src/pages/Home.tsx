@@ -23,7 +23,7 @@ export default function Home() {
 
           {/* About Us Button */}
           <div className="flex justify-center pb-12">
-            <Button className="w-44 h-[54px] bg-[#ffbb00] rounded-[20px] text-[#161616] text-xl [font-family:'Lora',Helvetica] font-normal">
+            <Button className="w-44 h-[54px] bg-[#ffbb00] rounded-[20px] text-[#161616] text-base md:text-xl [font-family:'Lora',Helvetica] font-normal">
               About Us
             </Button>
           </div>

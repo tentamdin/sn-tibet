@@ -5,11 +5,11 @@ export const FooterSection = (): JSX.Element => {
     { name: "Home", href: "/" },
     { name: "Category", href: "/collections" },
     { name: "About Us", href: "/about-us" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "Contact Us", href: "/" },
   ];
 
   return (
-    <footer className="w-full bg-white">
+    <footer id="footer" className="w-full bg-white">
       <div className="container mx-auto px-4 md:px-8 py-8 md:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {/* Questions and Info Section */}
@@ -26,9 +26,9 @@ export const FooterSection = (): JSX.Element => {
                 className="text-[#ffbb00] hover:underline"
               >
                 artisy@gmail.com
-              </a>
-              {" "}— and if you saw something you liked, don't forget to
-              include a picture so we can help you better!
+              </a>{" "}
+              — and if you saw something you liked, don't forget to include a
+              picture so we can help you better!
             </p>
           </div>
 
@@ -60,7 +60,8 @@ export const FooterSection = (): JSX.Element => {
                 Address
               </h3>
               <p className="font-normal text-sm md:text-base font-['Lora',Helvetica] text-[#000000b2] leading-relaxed">
-                211-214 Dame Lane<br />
+                211-214 Dame Lane
+                <br />
                 NC, USA
               </p>
             </div>
@@ -70,8 +71,19 @@ export const FooterSection = (): JSX.Element => {
                 Contact Details
               </h3>
               <p className="font-normal text-sm md:text-base font-['Lora',Helvetica] text-[#000000b2] leading-relaxed">
-                <a href="tel:908-555-2314" className="hover:text-[#ffbb00] transition-colors">908-555-2314</a><br />
-                <a href="tel:888-098-7654" className="hover:text-[#ffbb00] transition-colors">888-098-7654</a>
+                <a
+                  href="tel:908-555-2314"
+                  className="hover:text-[#ffbb00] transition-colors"
+                >
+                  908-555-2314
+                </a>
+                <br />
+                <a
+                  href="tel:888-098-7654"
+                  className="hover:text-[#ffbb00] transition-colors"
+                >
+                  888-098-7654
+                </a>
               </p>
             </div>
 
@@ -80,7 +92,7 @@ export const FooterSection = (): JSX.Element => {
                 Email
               </h3>
               <p className="font-normal text-sm md:text-base font-['Lora',Helvetica] text-[#000000cc]">
-                <a 
+                <a
                   href="mailto:artisy@gmail.com"
                   className="hover:text-[#ffbb00] transition-colors"
                 >
@@ -102,9 +114,12 @@ export const FooterSection = (): JSX.Element => {
             </p>
             <p className="font-normal text-sm md:text-base font-['Lora',Helvetica] text-[#000000b2] leading-relaxed">
               For over 25 years, we've shared the soul of Tibet —<br />
-              Hand to hand, heart to heart.<br />
-              Now, our journey continues online,<br />
-              Bringing sacred sound and mindful treasures<br />
+              Hand to hand, heart to heart.
+              <br />
+              Now, our journey continues online,
+              <br />
+              Bringing sacred sound and mindful treasures
+              <br />
               From our hands to your home.
             </p>
           </div>

@@ -1,22 +1,57 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 export const HeaderSection = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if we navigated with a hash
+    if (location.hash === "#contact") {
+      // Wait for the footer to be available in the DOM
+      setTimeout(() => {
+        const footer = document.getElementById("footer");
+        if (footer) {
+          footer.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location]);
+
+  const scrollToFooter = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      // Navigate to home and scroll to footer
+      navigate("/?scroll=true");
+      setTimeout(() => {
+        const footer = document.getElementById("footer");
+        if (footer) {
+          footer.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const footer = document.getElementById("footer");
+      if (footer) {
+        footer.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   // Navigation items data
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Category", href: "/collections" },
     { name: "About Us", href: "/about-us" },
-    { name: "Contact Us", href: "#" },
+    { name: "Contact Us", href: "/#contact", onClick: scrollToFooter },
   ];
 
   return (
@@ -38,7 +73,9 @@ export const HeaderSection = () => {
                   asChild
                   className="[font-family:'Lora',Helvetica] font-normal text-black text-lg"
                 >
-                  <Link to={item.href}>{item.name}</Link>
+                  <Link to={item.href} onClick={item.onClick}>
+                    {item.name}
+                  </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             ))}
@@ -62,7 +99,12 @@ export const HeaderSection = () => {
                   key={item.name}
                   to={item.href}
                   className="[font-family:'Lora',Helvetica] font-normal text-black text-lg py-3 px-4 hover:bg-gray-100"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    if (item.onClick) {
+                      item.onClick(e);
+                    }
+                  }}
                 >
                   {item.name}
                 </Link>
